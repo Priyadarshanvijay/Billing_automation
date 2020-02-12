@@ -27,7 +27,7 @@
                 <input id='r1' type = "radio" name="expense-category" value = "food">Food
                 <input id='r2' type = "radio" name="expense-category" value = "travel" >Travel
                 <input id='r3' type = "radio" name="expense-category" value = "stay" >Stay
-                <input type = "radio" name="expense-category" value = "other" >Other<br>
+                <input id='r4' type = "radio" name="expense-category" value = "other" >Other<br>
                 <label>Remarks<span id = "remark-is-required" hidden>*</span>: </label><textarea id="remarks" rows="4" cols="20"></textarea><br>
                 <label>Bills &amp; Invoice: </label><br>
                 <label>Select bill file (in PDF format) : </label><input type="file" name="bill-1-file"><label>Amount: </label><input type="text" name="bill-1-amount">
@@ -80,6 +80,7 @@
     let r1 = document.getElementById('r1');
     r1.onclick = ()=>{
         if(r1.checked){
+            document.getElementById('remarks').required = false;
             document.getElementById('travel-section').hidden = true;
             document.getElementById('stay-section').hidden = true;
             document.getElementById('food-section').hidden = false;
@@ -88,17 +89,31 @@
     let r2 = document.getElementById('r2');
     r2.onclick = ()=>{
         if(r2.checked){
+            document.getElementById('remarks').required = false;
             document.getElementById('food-section').hidden = true;
             document.getElementById('stay-section').hidden = true;
+            document.getElementById('remark-is-required').hidden = true;
             document.getElementById('travel-section').hidden = false;
         }
     }
     let r3 = document.getElementById('r3');
     r3.onclick = ()=>{
         if(r3.checked){
+            document.getElementById('remarks').required = false;
             document.getElementById('food-section').hidden = true;
             document.getElementById('travel-section').hidden = true;
+            document.getElementById('remark-is-required').hidden = true;
             document.getElementById('stay-section').hidden = false;
+        }
+    }
+    let r4 = document.getElementById('r4');
+    r4.onclick = ()=>{
+        if(r4.checked){
+            document.getElementById('remarks').required = true;
+            document.getElementById('food-section').hidden = true;
+            document.getElementById('travel-section').hidden = true;
+            document.getElementById('stay-section').hidden = true;
+            document.getElementById('remark-is-required').hidden = false;
         }
     }
 </script>
