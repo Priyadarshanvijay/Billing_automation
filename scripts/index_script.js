@@ -58,3 +58,16 @@ addBills.addEventListener('click', () => {
                 <input type="button" onclick = "removeBill(this.getAttribute('id'))" id="bill-${curNoOfBills}-remove" value="Remove this bill"><br></div>`;
     billDiv.innerHTML += htmlToAdd;            
 });
+
+let rstButton = document.getElementById('reset');
+rstButton.addEventListener('click', () => {
+    // document.getElementById("bill-details").outerHTML = "";
+    const billArea = document.getElementById("bill-details");
+    billArea.innerHTML = "";
+    curNoOfBills = 1;
+    const htmlToAdd = `<div class = "bill-child" id = "bill-${curNoOfBills}"><label>Select bill file (in PDF format) : </label><input type="file" name="bill-${curNoOfBills}-file"><label>Amount:
+                </label><input type="text" name="bill-${curNoOfBills}-amount">
+                <label>Bill Date: </label><input type="date" name="bill-${curNoOfBills}-date">
+                <input type="button" onclick = "removeBill(this.getAttribute('id'))" id="bill-${curNoOfBills}-remove" value="Remove this bill"><br></div>`;
+    billDiv.innerHTML += htmlToAdd;
+});
