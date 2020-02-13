@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Management</title>
 </head>
+
 <body>
-    <div class = "container">
-        <div id = "heading"><h1>Expense Management Tool</h1></div>
+    <div class="container">
+        <div id="heading">
+            <h1>Expense Management Tool</h1>
+        </div>
         <div class="bill-upload-container">
             <form id="company">
-               <label>Billing:  </label>
-                <select id = "torc">
+                <label>Billing: </label>
+                <select id="torc">
                     <option value="Talview">Talview</option>
                     <option value="Client">Client</option>
                 </select>
-                <span id = "client-text" hidden>
+                <span id="client-text" hidden>
                     <input list="clients">
                     <datalist id="clients">
                         <option value="Client 1">
@@ -24,13 +28,15 @@
                 </span>
                 <br>
                 <label>Expense Category: </label>
-                <input id='r1' type = "radio" name="expense-category" value = "food">Food
-                <input id='r2' type = "radio" name="expense-category" value = "travel" >Travel
-                <input id='r3' type = "radio" name="expense-category" value = "stay" >Stay
-                <input id='r4' type = "radio" name="expense-category" value = "other" >Other<br>
-                <label>Remarks<span id = "remark-is-required" hidden>*</span>: </label><textarea id="remarks" rows="4" cols="20"></textarea><br>
+                <input id='r1' type="radio" name="expense-category" value="food">Food
+                <input id='r2' type="radio" name="expense-category" value="travel">Travel
+                <input id='r3' type="radio" name="expense-category" value="stay">Stay
+                <input id='r4' type="radio" name="expense-category" value="other">Other<br>
+                <label>Remarks<span id="remark-is-required" hidden>*</span>: </label><textarea id="remarks" rows="4"
+                    cols="20"></textarea><br>
                 <label>Bills &amp; Invoice: </label><br>
-                <label>Select bill file (in PDF format) : </label><input type="file" name="bill-1-file"><label>Amount: </label><input type="text" name="bill-1-amount">
+                <label>Select bill file (in PDF format) : </label><input type="file" name="bill-1-file"><label>Amount:
+                </label><input type="text" name="bill-1-amount">
                 <label>Bill Date: </label><input type="date" name="bill-1-date"><br>
                 <input type="button" id="add-bill" value="Add another bill">
                 <div id="food-section" hidden>
@@ -52,13 +58,13 @@
                     <label>To: </label>
                     <input type="text" name="to" id="travel-to">
                 </div>
-                 <div id="stay-section" hidden>
+                <div id="stay-section" hidden>
                     <label>From Date : </label>
                     <input type="date" name="stay-from-date" id="stay-from-date">
                     <label>To Date : </label>
                     <input type="date" name="stay-to-date" id="stay-to-date"><br>
                     <label>Place Of Stay : </label><input type="text" id="place-of-stay"><br>
-                    <label>Destination City/ State/ Country : </label><input type="text" id="destination-stay"><br> 
+                    <label>Destination City/ State/ Country : </label><input type="text" id="destination-stay"><br>
                 </div>
                 <input type="submit" value="Save">
                 <input type="button" value="Cancel">
@@ -68,18 +74,18 @@
 </body>
 <script>
     let e = document.getElementById('torc');
-    e.onclick = () =>{
-         console.log(e.options[e.selectedIndex].text);
-         if(e.options[e.selectedIndex].text === 'Client'){
+    e.onclick = () => {
+        console.log(e.options[e.selectedIndex].text);
+        if (e.options[e.selectedIndex].text === 'Client') {
             document.getElementById('client-text').hidden = false;
-         }
-         else{
+        }
+        else {
             document.getElementById('client-text').hidden = true;
-         }
+        }
     }
     let r1 = document.getElementById('r1');
-    r1.onclick = ()=>{
-        if(r1.checked){
+    r1.onclick = () => {
+        if (r1.checked) {
             document.getElementById('remarks').required = false;
             document.getElementById('travel-section').hidden = true;
             document.getElementById('stay-section').hidden = true;
@@ -87,8 +93,8 @@
         }
     }
     let r2 = document.getElementById('r2');
-    r2.onclick = ()=>{
-        if(r2.checked){
+    r2.onclick = () => {
+        if (r2.checked) {
             document.getElementById('remarks').required = false;
             document.getElementById('food-section').hidden = true;
             document.getElementById('stay-section').hidden = true;
@@ -97,8 +103,8 @@
         }
     }
     let r3 = document.getElementById('r3');
-    r3.onclick = ()=>{
-        if(r3.checked){
+    r3.onclick = () => {
+        if (r3.checked) {
             document.getElementById('remarks').required = false;
             document.getElementById('food-section').hidden = true;
             document.getElementById('travel-section').hidden = true;
@@ -107,8 +113,8 @@
         }
     }
     let r4 = document.getElementById('r4');
-    r4.onclick = ()=>{
-        if(r4.checked){
+    r4.onclick = () => {
+        if (r4.checked) {
             document.getElementById('remarks').required = true;
             document.getElementById('food-section').hidden = true;
             document.getElementById('travel-section').hidden = true;
@@ -117,4 +123,5 @@
         }
     }
 </script>
+
 </html>
