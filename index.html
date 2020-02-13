@@ -35,9 +35,11 @@
                 <label>Remarks<span id="remark-is-required" hidden>*</span>: </label><textarea id="remarks" rows="4"
                     cols="20"></textarea><br>
                 <label>Bills &amp; Invoice: </label><br>
-                <label>Select bill file (in PDF format) : </label><input type="file" name="bill-1-file"><label>Amount:
-                </label><input type="text" name="bill-1-amount">
-                <label>Bill Date: </label><input type="date" name="bill-1-date"><br>
+                <div id = "bill-details">
+                    <label>Select bill file (in PDF format) : </label><input type="file" name="bill-1-file"><label>Amount:
+                    </label><input type="text" name="bill-1-amount">
+                    <label>Bill Date: </label><input type="date" name="bill-1-date"><br>
+                </div>
                 <input type="button" id="add-bill" value="Add another bill">
                 <div id="food-section" hidden>
                     <label>Number of Dinners</label>
@@ -122,6 +124,16 @@
             document.getElementById('remark-is-required').hidden = false;
         }
     }
+    let billDiv = document.getElementById('bill-details');
+    let curNoOfBills = 1;
+    let addBills = document.getElementById('add-bill');
+    addBills.addEventListener('click', () => {
+        curNoOfBills += 1;
+        const htmlToAdd = `<label>Select bill file (in PDF format) : </label><input type="file" name="bill-${curNoOfBills}-file"><label>Amount:
+                    </label><input type="text" name="bill-${curNoOfBills}-amount">
+                    <label>Bill Date: </label><input type="date" name="bill-${curNoOfBills}-date"><br>`;
+        billDiv.innerHTML += htmlToAdd;            
+    });
 </script>
 
 </html>
